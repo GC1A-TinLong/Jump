@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    Animator _anim;
+    AudioSource _audioSource;
+
     private void DestroySelf()
     {
         Destroy(gameObject);
@@ -13,10 +16,10 @@ public class Item : MonoBehaviour
         /*Rigidbody rb = other.GetComponent<Rigidbody>();
         rb.drag = 20;*/
 
-        //DestroySelf();
         Debug.Log(other.gameObject.name + " were Overlaped");
         //_anim.Play("Get");
         _anim.SetBool("IsGet", true);
+        _audioSource.Play();
     }
     private void OnTriggerExit(Collider other)
     {
@@ -34,18 +37,18 @@ public class Item : MonoBehaviour
         Destroy(gameObject);
     }
 
-    Animator _anim;
-
     // Start is called before the first frame update
     void Start()
     {
-        _anim= GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V)) {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
             _anim.Play("Idle");
         }
         if (Input.GetKeyDown(KeyCode.C))
