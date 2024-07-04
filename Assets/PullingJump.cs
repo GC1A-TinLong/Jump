@@ -9,8 +9,7 @@ public class PulllingJump : MonoBehaviour
 
     private Vector3 clickPosition;
     [SerializeField] float groundLimit = 30.0f;
-    [SerializeField]
-    private float jumpPower = 10;
+    [SerializeField] private float jumpPower = 10.0f;
 
     private bool isCanJump;
 
@@ -25,7 +24,7 @@ public class PulllingJump : MonoBehaviour
         Vector3 normal = collision.contacts[0].normal;  // getting surface's normal
         float angle = Vector3.Angle(normal, Vector3.up);
 
-        if (angle < 30)
+        if (angle < 30.0f)
         {
             isCanJump = true;
         }
