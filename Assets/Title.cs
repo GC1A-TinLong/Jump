@@ -7,19 +7,12 @@ public class Title : MonoBehaviour
 {
     public void LoadScene()
     {
-        Debug.Log("Test");
+        Debug.Log("load scene");
+        SceneManager.LoadScene("Gameplay");
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("load scene");
-        //SceneManager.LoadScene("SampleScene");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Screen.SetResolution(1600, 900, false);
     }
 }
